@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Copilot — Browser Tools GA Demo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 48px;
+    }
+
+    /* ── Title block ── */
+    .title-block {
+      text-align: center;
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #238636;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .title-block h1 {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .title-block h1 span { color: #58a6ff; }
+
+    .title-block p {
+      font-size: 0.92rem;
+      color: #8b949e;
+    }
+
+    /* ── Video ── */
+    .video-wrap {
+      width: 100%;
+      max-width: 900px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      margin-bottom: 28px;
+    }
+
+    .video-wrap video {
+      width: 100%;
+      display: block;
+      background: #000;
+    }
+
+    .video-footer {
+      padding: 11px 18px;
+      font-size: 0.8rem;
+      color: #8b949e;
+      border-top: 1px solid #30363d;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .video-footer::before { content: "▶"; color: #238636; font-size: 0.7rem; }
+
+    /* ── Capability chips ── */
+    .caps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+
+    .cap {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .cap .icon { font-size: 1rem; }
+
+    /* ── Prompt block ── */
+    .prompt-wrap {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+
+    .prompt-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8b949e;
+      margin-bottom: 8px;
+    }
+
+    .prompt-block {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-left: 3px solid #58a6ff;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.87rem;
+      color: #79c0ff;
+      line-height: 1.9;
+      white-space: pre;
+    }
+
+    /* ── Resource links ── */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 900px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 10px 18px;
+      text-decoration: none;
+      color: #e6edf3;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: border-color 0.15s;
+    }
+
+    .link-btn:hover { border-color: #58a6ff; }
+  </style>
+</head>
+<body>
+
+  <!-- Title -->
+  <div class="title-block">
+    <div class="badge">Generally Available · VS Code</div>
+    <h1>GitHub Copilot now has a <span>real browser</span> inside VS Code</h1>
+    <p>Browser Tools GA — agents observe, interact, screenshot &amp; validate live web apps</p>
+  </div>
+
+  <!-- Video -->
+  <div class="video-wrap">
+    <video controls preload="metadata">
+      <source src="GHCP-Browser-Tools-GA.mp4" type="video/mp4" />
+    </video>
+    <div class="video-footer">Quick demo · GitHub Copilot Browser Tools in action · July 3, 2026</div>
+  </div>
+
+  <!-- Capability chips -->
+  <div class="caps">
+    <div class="cap"><span class="icon">🌐</span> Open &amp; navigate web apps</div>
+    <div class="cap"><span class="icon">🖱️</span> Click, type &amp; interact with UI</div>
+    <div class="cap"><span class="icon">📸</span> Capture screenshots</div>
+    <div class="cap"><span class="icon">🔍</span> Inspect console errors</div>
+    <div class="cap"><span class="icon">✅</span> Validate app behavior</div>
+  </div>
+
+  <!-- Prompt used -->
+  <div class="prompt-wrap">
+    <div class="prompt-label">Prompt used in this demo</div>
+    <div class="prompt-block">Open https://playwright.dev
+Summarize the homepage
+Take a screenshot
+Tell me what frameworks and key products are mentioned</div>
+  </div>
+
+  <!-- Resource links -->
+  <div class="links">
+    <a class="link-btn" href="https://github.blog/changelog/2026-07-01-browser-tools-for-github-copilot-in-vs-code-are-generally-available/" target="_blank" rel="noopener">
+      📋 Release Notes — GitHub Changelog
+    </a>
+    <a class="link-btn" href="https://code.visualstudio.com/docs/agents/guides/browser-agent-testing-guide" target="_blank" rel="noopener">
+      🧪 Lab: Browser Agent Testing Guide
+    </a>
+    <a class="link-btn" href="https://code.visualstudio.com/docs/debugtest/integrated-browser" target="_blank" rel="noopener">
+      🌐 Integrated Browser Docs
+    </a>
+  </div>
+
+</body>
+</html>
